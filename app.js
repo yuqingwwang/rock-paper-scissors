@@ -7,7 +7,6 @@ function getComputerChoice(){
   return computerSelection;
 }
 
-
 function playRound(playerSelection, computerSelection) {
   let result = "It's a draw."
 
@@ -36,6 +35,13 @@ function playRound(playerSelection, computerSelection) {
   return result
 }
 
-const playerSelection = "Rock";
-const computerSelection = getComputerChoice();
-console.log(playRound(playerSelection, computerSelection));
+
+function game(){
+  for (let i = 0; i < 5; i++) {
+    const playerSelection = "Rock";
+    const computerSelection = getComputerChoice();
+    console.log(playRound(playerSelection, computerSelection));
+ }
+}
+
+game()
