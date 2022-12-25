@@ -1,8 +1,8 @@
-const win = 'You win!'
-const lose = 'You lose!'
+const win = 'You win:'
+const lose = 'You lose:'
 
 function getComputerChoice(){
-  const choices = ['Rock', 'Paper', 'Scissors'];
+  const choices = ['rock', 'paper', 'scissors'];
   const computerSelection = choices[Math.floor(Math.random() * 3)];
   return computerSelection;
 }
@@ -11,21 +11,23 @@ function getComputerChoice(){
 function playRound(playerSelection, computerSelection) {
   var result="It's a draw."
 
+  playerSelection = playerSelection.toLowerCase()
+
   if (playerSelection==computerSelection){
     return result;
   }
 
   else
-    if (playerSelection=='Paper') {
-      result = (computerSelection=='Rock' ? win : lose)
+    if (playerSelection=='paper') {
+      result = (computerSelection=='rock' ? win : lose)
       }
 
-    else if (playerSelection=='Rock') {
-      result = (computerSelection=='Paper' ? lose : win)
+    else if (playerSelection=='rock') {
+      result = (computerSelection=='paper' ? lose : win)
       }
 
-    else if (playerSelection=='Scissors') {
-      result = (computerSelection=='Paper' ? win : lose)
+    else if (playerSelection=='scissors') {
+      result = (computerSelection=='paper' ? win : lose)
     }
 
   result==win ? result += ` ${playerSelection} beats ${computerSelection}.`:
