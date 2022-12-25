@@ -1,3 +1,6 @@
+const win = 'You win!'
+const lose = 'You lose!'
+
 function getComputerChoice(){
   const choices = ['Rock', 'Paper', 'Scissors'];
   const computerSelection = choices[Math.floor(Math.random() * 3)];
@@ -16,31 +19,17 @@ function playRound(playerSelection, computerSelection) {
 
   else
     if (playerSelection=='Paper') {
-      if (computerSelection=='Rock') {
-        result = 'You win!'
+      result = (computerSelection=='Rock' ? win : lose)
       }
-      else {
-        result = 'You lose!'
-      }
-    }
 
     if (playerSelection=='Rock') {
-      if (computerSelection=='Paper') {
-        result = 'You lose!'
+      result = (computerSelection=='Paper' ? lose : win)
       }
-      else {
-        result = 'You win!'
-      }
-    }
 
     if (playerSelection=='Scissors') {
-      if (computerSelection=='Paper') {
-        result = 'You win!'
-      }
-      else {
-        result = 'You lose!'
-      }
+      result = (computerSelection=='Paper' ? win : lose)
     }
+
   return result
 }
 
