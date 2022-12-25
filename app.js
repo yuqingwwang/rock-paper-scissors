@@ -1,16 +1,14 @@
+const choices = ['rock', 'paper', 'scissors']
 const win = 'You win:'
 const lose = 'You lose:'
 
 function getComputerChoice(){
-  const choices = ['rock', 'paper', 'scissors'];
   const computerSelection = choices[Math.floor(Math.random() * 3)];
   return computerSelection;
 }
 
 function playRound(playerSelection, computerSelection) {
   let result = "It's a draw."
-
-  playerSelection = playerSelection.toLowerCase()
 
   if (playerSelection == computerSelection){
     return result;
@@ -38,9 +36,17 @@ function playRound(playerSelection, computerSelection) {
 
 function game(){
   for (let i = 0; i < 5; i++) {
-    const playerSelection = "Rock";
-    const computerSelection = getComputerChoice();
-    console.log(playRound(playerSelection, computerSelection));
+    let playerSelection = prompt(`Round ${i+1}! ` + "What's your choice", "Rock").toLowerCase()
+    let computerSelection = getComputerChoice()
+
+    if (!choices.includes(playerSelection)) {
+      alert('Please choose from Rock, paper or scissors')
+      i--;
+    }
+
+    else {
+      console.log(playRound(playerSelection, computerSelection))
+    }
  }
 }
 
