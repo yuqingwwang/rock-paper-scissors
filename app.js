@@ -9,28 +9,28 @@ function getComputerChoice(){
 
 
 function playRound(playerSelection, computerSelection) {
-  var result="It's a draw."
+  let result = "It's a draw."
 
   playerSelection = playerSelection.toLowerCase()
 
-  if (playerSelection==computerSelection){
+  if (playerSelection == computerSelection){
     return result;
   }
 
   else
-    if (playerSelection=='paper') {
-      result = (computerSelection=='rock' ? win : lose)
+    if (playerSelection == 'paper') {
+      result = (computerSelection == 'rock' ? win : lose)
       }
 
-    else if (playerSelection=='rock') {
-      result = (computerSelection=='paper' ? lose : win)
+    else if (playerSelection == 'rock') {
+      result = (computerSelection == 'paper' ? lose : win)
       }
 
-    else if (playerSelection=='scissors') {
-      result = (computerSelection=='paper' ? win : lose)
+    else if (playerSelection == 'scissors') {
+      result = (computerSelection == 'paper' ? win : lose)
     }
 
-  result==win ? result += ` ${playerSelection} beats ${computerSelection}.`:
+  result == win ? result += ` ${playerSelection} beats ${computerSelection}.`:
   result += ` ${computerSelection} beats ${playerSelection}.`
 
   return result
