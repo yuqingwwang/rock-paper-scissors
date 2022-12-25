@@ -9,9 +9,7 @@ function getComputerChoice(){
 
 
 function playRound(playerSelection, computerSelection) {
-  console.log('Computer plays ' + computerSelection)
-
-  var result='draw'
+  var result="It's a draw."
 
   if (playerSelection==computerSelection){
     return result;
@@ -22,13 +20,16 @@ function playRound(playerSelection, computerSelection) {
       result = (computerSelection=='Rock' ? win : lose)
       }
 
-    if (playerSelection=='Rock') {
+    else if (playerSelection=='Rock') {
       result = (computerSelection=='Paper' ? lose : win)
       }
 
-    if (playerSelection=='Scissors') {
+    else if (playerSelection=='Scissors') {
       result = (computerSelection=='Paper' ? win : lose)
     }
+
+  result==win ? result += ` ${playerSelection} beats ${computerSelection}.`:
+  result += ` ${computerSelection} beats ${playerSelection}.`
 
   return result
 }
