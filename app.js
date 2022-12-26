@@ -50,4 +50,25 @@ function game(){
  }
 }
 
-game()
+const matches = document.querySelectorAll("button");
+
+
+function startGame() {
+  matches.forEach((selection) => {
+    selection.addEventListener('click', () => {
+      if (selection.classList.contains('rock')) {
+        console.log(playRound('rock', getComputerChoice()));}
+      if (selection.classList.contains('paper')) {
+        console.log(playRound('paper', getComputerChoice()));}
+      if (selection.classList.contains('scissors')) {
+        console.log(playRound('scissors', getComputerChoice()));}
+    })})}
+
+
+startGame()
+// const rock = document.querySelector('.rock');
+// rock.addEventListener('click', () => {
+//   alert("Hello World");
+// });
+
+// game()
