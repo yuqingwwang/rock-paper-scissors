@@ -8,10 +8,11 @@ function getComputerChoice(){
 }
 
 function playRound(playerSelection, computerSelection) {
-  let result = "It's a draw."
+  let aus = "It's a draw."
+  var result
 
   if (playerSelection == computerSelection){
-    return result;
+    return aus;
   }
 
   else
@@ -26,25 +27,29 @@ function playRound(playerSelection, computerSelection) {
     else if (playerSelection == 'scissors') {
       result = (computerSelection == 'paper' ? win : lose)
     }
+  result == win ? userWin('True'):userWin('False')
 
-  result == win ? result += ` ${playerSelection} beats ${computerSelection}.`:
-  result += ` ${computerSelection} beats ${playerSelection}.`
+  result == win ? aus = ` ${playerSelection} beats ${computerSelection}.`:
+  aus = ` ${computerSelection} beats ${playerSelection}.`
 
-  return result
+  return aus
 }
 
 // selecting the player choice buttons
+
 const matches = document.querySelectorAll("button");
 
-function cleanText(){
-  let element = document.getElementById("results");
-  while (element.firstChild) {
+function cleanText(char){
+  let element = document.getElementById(char);
+  if (element.firstChild) {
     element.removeChild(element.firstChild);
   }
+  console.log(element)
 }
+
 function displayResult(hand){
   // clean before displaying new result
-  cleanText();
+  cleanText("results");
   const container = document.querySelector('#results');
   const content = document.createElement('div');
   content.classList.add('content');
@@ -65,6 +70,34 @@ function startGame() {
         displayResult('scissors')
       }
     })})}
+
+
+let userPoints = 0;
+let computerPoints = 0;
+
+function userWin(state){
+  let temp
+  winner = ''
+  // if user wins
+  if (state=='True') {
+    userPoints+=1;
+    winner = 'user'
+    temp = userPoints
+  }
+  // if computer wins
+  else {
+    computerPoints+=1;
+    winner = 'computer'
+    temp = computerPoints;
+  }
+
+  cleanText(winner);
+  const container = document.querySelector(`#${winner}`);
+  const content = document.createElement('div');
+  content.classList.add('content');
+  content.textContent = temp;
+  container.appendChild(content);
+}
 
 startGame()
 
