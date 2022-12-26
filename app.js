@@ -43,6 +43,7 @@ function cleanText(){
   }
 }
 function displayResult(hand){
+  // clean before displaying new result
   cleanText();
   const container = document.querySelector('#results');
   const content = document.createElement('div');
