@@ -1,0 +1,11 @@
+.scores{
+  display:flex;
+  flex-direction: row;
+  font-size: 20px;
+  justify-content: space-evenly;
+  text-align: center;
+}
+
+h1, h2, p, div {
+  text-align: center;
+}

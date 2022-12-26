@@ -1,4 +1,6 @@
 const choices = ['rock', 'paper', 'scissors']
+let userPoints = 0;
+let computerPoints = 0;
 
 function getComputerChoice(){
   const computerSelection = choices[Math.floor(Math.random() * 3)];
@@ -69,12 +71,10 @@ function startGame() {
     })})}
 
 
-let userPoints = 0;
-let computerPoints = 0;
-
 function userWin(state){
   let temp
   winner = ''
+
   // if user wins
   if (state=='True') {
     userPoints+=1;
@@ -94,6 +94,7 @@ function userWin(state){
   content.classList.add('content');
   content.textContent = temp;
   container.appendChild(content);
+
 }
 
 startGame()
