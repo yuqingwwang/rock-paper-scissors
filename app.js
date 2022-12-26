@@ -70,7 +70,6 @@ function startGame() {
       }
     })})}
 
-
 function userWin(state){
   let temp
   winner = ''
@@ -88,19 +87,20 @@ function userWin(state){
     temp = computerPoints;
   }
 
-  cleanText(winner);
-  const container = document.querySelector(`#${winner}`);
-  const content = document.createElement('div');
-  content.classList.add('content');
-  content.textContent = temp;
-  container.appendChild(content);
-
   if (temp>4) {
     alert(`Game Over! ${winner} wins`);
     location.reload();
   }
-}
 
+  else {
+    cleanText(winner);
+    const container = document.querySelector(`#${winner}`);
+    const content = document.createElement('div');
+    content.classList.add('content');
+    content.textContent = temp;
+    container.appendChild(content);
+  }
+}
 
 // reset the game
 const resetGame = () => {
