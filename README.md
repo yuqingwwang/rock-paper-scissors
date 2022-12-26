@@ -4,6 +4,6 @@ An Odin Project project (built on Christmas day, 2022)
 
 ## Work in progress
 
-For the moment, the game can only be played from the browser console. 
+A simple Graphical User Interface has been added but there's still a lot left to do.
 
-In the near future, a Graphical User Interface with buttons and text will be added.
+Preview it here: 
