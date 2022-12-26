@@ -33,42 +33,58 @@ function playRound(playerSelection, computerSelection) {
   return result
 }
 
-
-function game(){
-  for (let i = 0; i < 5; i++) {
-    let playerSelection = prompt(`Round ${i+1}! ` + "What's your choice", "Rock").toLowerCase()
-    let computerSelection = getComputerChoice()
-
-    if (!choices.includes(playerSelection)) {
-      alert('Please choose from Rock, paper or scissors')
-      i--;
-    }
-
-    else {
-      console.log(playRound(playerSelection, computerSelection))
-    }
- }
-}
-
+// selecting the player choice buttons
 const matches = document.querySelectorAll("button");
 
+function cleanText(){
+  let element = document.getElementById("results");
+  while (element.firstChild) {
+    element.removeChild(element.firstChild);
+  }
+}
+function displayResult(hand){
+  cleanText();
+  const container = document.querySelector('#results');
+  const content = document.createElement('div');
+  content.classList.add('content');
+  content.textContent = playRound(hand, getComputerChoice());
+  container.appendChild(content);
+}
 
 function startGame() {
   matches.forEach((selection) => {
     selection.addEventListener('click', () => {
       if (selection.classList.contains('rock')) {
-        console.log(playRound('rock', getComputerChoice()));}
+        displayResult('rock')
+      }
       if (selection.classList.contains('paper')) {
-        console.log(playRound('paper', getComputerChoice()));}
+        displayResult('paper')
+      }
       if (selection.classList.contains('scissors')) {
-        console.log(playRound('scissors', getComputerChoice()));}
+        displayResult('scissors')
+      }
     })})}
 
 
+
+
+
 startGame()
-// const rock = document.querySelector('.rock');
-// rock.addEventListener('click', () => {
-//   alert("Hello World");
-// });
+
+// function game(){
+//   for (let i = 0; i < 5; i++) {
+//     let playerSelection = prompt(`Round ${i+1}! ` + "What's your choice", "Rock").toLowerCase()
+//     let computerSelection = getComputerChoice()
+
+//     if (!choices.includes(playerSelection)) {
+//       alert('Please choose from Rock, paper or scissors')
+//       i--;
+//     }
+
+//     else {
+//       console.log(playRound(playerSelection, computerSelection))
+//     }
+//  }
+// }
 
 // game()
