@@ -3,13 +3,42 @@
   <head>
     <title>Rock Paper Scissors</title>
     <meta charset="UTF-8" />
-    <link rel="stylesheet" href="style.css" />
+    <script src="app.js" defer></script>
+    <link
+      href="style.css"
+      rel="stylesheet">
     <link
       href="https://fonts.googleapis.com/css2?family=Lacquer&family=Roboto&display=swap"
       rel="stylesheet"
     />
   </head>
   <body>
-    <script src="app.js"></script>
+    <header>Rock Paper Scissors</header>
+    <h1>Welcome to the game!</h1>
+    <h2>Make your choice</h2>
+    <div>
+      <button class="rock" id='rock' href="#">Rock</button>
+      <button class="paper" href="#">Paper</button>
+      <button class="scissors" href="#">Scissors</button>
+    </div>
+    <div class='results'>
+      <h2>Result</h2>
+      <p id="results">Here is the result</p>
+    </div>
+      <div class='scores' id="scores">
+        <div class='computer_score'>
+          <h2>Computer Scores</h3>
+        <p id="computer"></p>
+      </div>
+        <div class='user_score'>
+          <h2>Your Scores</h2>
+        <p id="user"></p>
+      </div>
+    </div>
+
+    <div class="game-stats">
+      <button class="btn" id="btn--next-round">Reset</button>
+    </div>
+  <footer>Assignment for The Odin Project. Made by YW.</footer>
   </body>
   </html>

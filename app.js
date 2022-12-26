@@ -1,6 +1,6 @@
 const choices = ['rock', 'paper', 'scissors']
-const win = 'You win:'
-const lose = 'You lose:'
+let userPoints = 0;
+let computerPoints = 0;
 
 function getComputerChoice(){
   const computerSelection = choices[Math.floor(Math.random() * 3)];
@@ -8,46 +8,125 @@ function getComputerChoice(){
 }
 
 function playRound(playerSelection, computerSelection) {
-  let result = "It's a draw."
+  let aus = "It's a draw."
+  let win = `You win! ${playerSelection} beats ${computerSelection}.`
+  let lose = `You lose! ${computerSelection} beats ${playerSelection}.`
 
   if (playerSelection == computerSelection){
-    return result;
+    return aus;
   }
 
   else
     if (playerSelection == 'paper') {
-      result = (computerSelection == 'rock' ? win : lose)
+      computerSelection == 'rock' ? userWin('True') : userWin('False');
+      computerSelection == 'rock' ? aus=win : aus=lose;
       }
 
     else if (playerSelection == 'rock') {
-      result = (computerSelection == 'paper' ? lose : win)
+      computerSelection == 'paper' ? userWin('False') : userWin('True');
+      computerSelection == 'paper' ? aus=lose : aus=win;
       }
 
     else if (playerSelection == 'scissors') {
-      result = (computerSelection == 'paper' ? win : lose)
+      computerSelection == 'paper' ? userWin('True'): userWin('False');
+      computerSelection == 'paper' ? aus=win : aus=lose;
     }
 
-  result == win ? result += ` ${playerSelection} beats ${computerSelection}.`:
-  result += ` ${computerSelection} beats ${playerSelection}.`
-
-  return result
+  return aus
 }
 
+// selecting the player choice buttons
 
-function game(){
-  for (let i = 0; i < 5; i++) {
-    let playerSelection = prompt(`Round ${i+1}! ` + "What's your choice", "Rock").toLowerCase()
-    let computerSelection = getComputerChoice()
+const matches = document.querySelectorAll("button");
 
-    if (!choices.includes(playerSelection)) {
-      alert('Please choose from Rock, paper or scissors')
-      i--;
-    }
-
-    else {
-      console.log(playRound(playerSelection, computerSelection))
-    }
- }
+function cleanText(char){
+  let element = document.getElementById(char);
+  if (element.firstChild) {
+    element.removeChild(element.firstChild);
+  }
 }
 
-game()
+function displayResult(hand){
+  // clean before displaying new result
+  cleanText("results");
+  const container = document.querySelector('#results');
+  const content = document.createElement('div');
+  content.classList.add('content');
+  content.textContent = playRound(hand, getComputerChoice());
+  container.appendChild(content);
+}
+
+function startGame() {
+  matches.forEach((selection) => {
+    selection.addEventListener('click', () => {
+      if (selection.classList.contains('rock')) {
+        displayResult('rock')
+      }
+      if (selection.classList.contains('paper')) {
+        displayResult('paper')
+      }
+      if (selection.classList.contains('scissors')) {
+        displayResult('scissors')
+      }
+    })})}
+
+function userWin(state){
+  let temp
+  winner = ''
+
+  // if user wins
+  if (state=='True') {
+    userPoints+=1;
+    winner = 'user'
+    temp = userPoints
+  }
+  // if computer wins
+  else {
+    computerPoints+=1;
+    winner = 'computer'
+    temp = computerPoints;
+  }
+
+  if (temp>4) {
+    alert(`Game Over! ${winner} wins`);
+    location.reload();
+  }
+
+  else {
+    cleanText(winner);
+    const container = document.querySelector(`#${winner}`);
+    const content = document.createElement('div');
+    content.classList.add('content');
+    content.textContent = temp;
+    container.appendChild(content);
+  }
+}
+
+// reset the game
+const resetGame = () => {
+  let resetBtn = document.querySelector('#btn--next-round')
+  resetBtn.addEventListener('click', () =>
+    location.reload());
+};
+
+startGame()
+resetGame()
+
+// old code for the version without GUI
+// function game(){
+//   for (let i = 0; i < 5; i++) {
+//     let playerSelection = prompt(`Round ${i+1}! ` + "What's your choice", "Rock").toLowerCase()
+//     let computerSelection = getComputerChoice()
+
+//     if (!choices.includes(playerSelection)) {
+//       alert('Please choose from Rock, paper or scissors')
+//       i--;
+//     }
+
+//     else {
+//       console.log(playRound(playerSelection, computerSelection))
+//     }
+//  }
+// }
+
+// game()

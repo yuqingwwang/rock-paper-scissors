@@ -1,0 +1,39 @@
+.scores{
+  display:flex;
+  flex-direction: row;
+  font-size: 20px;
+  justify-content: space-evenly;
+  text-align: center;
+}
+
+h1, h2, p, div {
+  text-align : center;
+  font-family :'Roboto';
+  margin: 2%;
+}
+
+button{
+  background-color: coral;
+  border-radius: 10px;
+  color: whitesmoke;
+  font-size: 20px;
+  margin: 10px;
+  padding: 10px;
+  position: relative;
+}
+
+header, footer{
+  background-color: rgb(218, 152, 28) ;
+  color: white;
+  line-height: 2;
+  width: 100%;
+}
+
+header {
+  padding-left: 10px;
+}
+footer {
+  position: absolute;
+  bottom: 0;
+  text-align: center;
+}
