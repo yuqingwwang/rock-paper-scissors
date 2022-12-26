@@ -95,9 +95,22 @@ function userWin(state){
   content.textContent = temp;
   container.appendChild(content);
 
+  if (temp>4) {
+    alert(`Game Over! ${winner} wins`);
+    location.reload();
+  }
 }
 
+
+// reset the game
+const resetGame = () => {
+  let resetBtn = document.querySelector('#btn--next-round')
+  resetBtn.addEventListener('click', () =>
+    location.reload());
+};
+
 startGame()
+resetGame()
 
 // old code for the version without GUI
 // function game(){
