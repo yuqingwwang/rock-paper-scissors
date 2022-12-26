@@ -1,6 +1,4 @@
 const choices = ['rock', 'paper', 'scissors']
-const win = 'You win:'
-const lose = 'You lose:'
 
 function getComputerChoice(){
   const computerSelection = choices[Math.floor(Math.random() * 3)];
@@ -9,7 +7,8 @@ function getComputerChoice(){
 
 function playRound(playerSelection, computerSelection) {
   let aus = "It's a draw."
-  var result
+  let win = `You win! ${playerSelection} beats ${computerSelection}.`
+  let lose = `You lose! ${computerSelection} beats ${playerSelection}.`
 
   if (playerSelection == computerSelection){
     return aus;
@@ -17,20 +16,19 @@ function playRound(playerSelection, computerSelection) {
 
   else
     if (playerSelection == 'paper') {
-      result = (computerSelection == 'rock' ? win : lose)
+      computerSelection == 'rock' ? userWin('True') : userWin('False');
+      computerSelection == 'rock' ? aus=win : aus=lose;
       }
 
     else if (playerSelection == 'rock') {
-      result = (computerSelection == 'paper' ? lose : win)
+      computerSelection == 'paper' ? userWin('False') : userWin('True');
+      computerSelection == 'paper' ? aus=lose : aus=win;
       }
 
     else if (playerSelection == 'scissors') {
-      result = (computerSelection == 'paper' ? win : lose)
+      computerSelection == 'paper' ? userWin('True'): userWin('False');
+      computerSelection == 'paper' ? aus=win : aus=lose;
     }
-  result == win ? userWin('True'):userWin('False')
-
-  result == win ? aus = ` ${playerSelection} beats ${computerSelection}.`:
-  aus = ` ${computerSelection} beats ${playerSelection}.`
 
   return aus
 }
@@ -44,7 +42,6 @@ function cleanText(char){
   if (element.firstChild) {
     element.removeChild(element.firstChild);
   }
-  console.log(element)
 }
 
 function displayResult(hand){
