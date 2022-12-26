@@ -66,12 +66,9 @@ function startGame() {
       }
     })})}
 
-
-
-
-
 startGame()
 
+// old code for the version without GUI
 // function game(){
 //   for (let i = 0; i < 5; i++) {
 //     let playerSelection = prompt(`Round ${i+1}! ` + "What's your choice", "Rock").toLowerCase()
