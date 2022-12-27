@@ -13,10 +13,11 @@ h1, h2, p, div {
 }
 
 button{
-  background-color: coral;
+  background-color: rgb(183, 70, 214);
   border-radius: 10px;
   color: whitesmoke;
-  font-size: 20px;
+  font-size: 25px;
+  width:max-content;
   margin: 10px;
   padding: 10px;
   position: relative;
