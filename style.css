@@ -1,3 +1,17 @@
+html{
+  position:relative;
+  min-height: 100%;
+}
+
+html,body{
+  margin:0;
+  padding:0;
+}
+
+.pageContentWrapper{
+  margin-bottom:100px;/* Height of footer*/
+}
+
 .scores, .actions {
   display:flex;
   flex-direction: row;
@@ -10,7 +24,7 @@
 }
 
 .actions {
-  justify-content: space-between;
+  justify-content: space-evenly;
   margin: 50px 350px 50px 350px;
 }
 
@@ -23,11 +37,12 @@ h1, h2, p, div {
 h1 {
   font-size: 40px;
 }
+
 h2 {
   font-size: 30px;
 }
 
-h {
+p, div {
   font-size: 20px;
 }
 
@@ -36,12 +51,19 @@ button{
   border-radius: 10px;
   color: whitesmoke;
   font-size: 25px;
-  width:max-content;
   margin: 10px;
   padding: 10px;
+  width:max-content;
+}
+
+.actions button {
   position: relative;
 }
 
+.game-stats {
+  pading-top: 20px;
+  padding-bottom: 40px;
+}
 header, footer{
   background-color: rgb(218, 152, 28) ;
   color: white;
@@ -52,8 +74,9 @@ header, footer{
 header {
   padding-left: 10px;
 }
+
 footer {
-  position: absolute;
   bottom: 0;
+  position: absolute;
   text-align: center;
 }
