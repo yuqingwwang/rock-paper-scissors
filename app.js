@@ -1,38 +1,51 @@
 const choices = ['rock', 'paper', 'scissors']
 let userPoints = 0;
 let computerPoints = 0;
+var capitalized = {
+  "rock": "Rock",
+  "paper": "Paper",
+  "scissors": "Scissors",
+  "computer": "Computer",
+  "user": "You"
+};
 
 function getComputerChoice(){
+  /** Computer randomly chooses between the three options.*/
   const computerSelection = choices[Math.floor(Math.random() * 3)];
   return computerSelection;
 }
 
 function playRound(playerSelection, computerSelection) {
-  let aus = "It's a draw."
-  let win = `You win! ${playerSelection} beats ${computerSelection}.`
-  let lose = `You lose! ${computerSelection} beats ${playerSelection}.`
+  /** takes actions from player and computer, returns result for the round*/
+
+  // result message
+  let outcome = "It's a draw. Try again. "
+  let win = `You win! ${capitalized[playerSelection]
+  } beats ${capitalized[computerSelection]}.`
+  let lose = `You lose! ${capitalized[computerSelection]
+  } beats ${capitalized[playerSelection]}.`
 
   if (playerSelection == computerSelection){
-    return aus;
+    return outcome;
   }
 
   else
     if (playerSelection == 'paper') {
       computerSelection == 'rock' ? userWin('True') : userWin('False');
-      computerSelection == 'rock' ? aus=win : aus=lose;
+      computerSelection == 'rock' ? outcome = win : outcome = lose;
       }
 
     else if (playerSelection == 'rock') {
       computerSelection == 'paper' ? userWin('False') : userWin('True');
-      computerSelection == 'paper' ? aus=lose : aus=win;
+      computerSelection == 'paper' ? outcome = lose : outcome = win;
       }
 
     else if (playerSelection == 'scissors') {
       computerSelection == 'paper' ? userWin('True'): userWin('False');
-      computerSelection == 'paper' ? aus=win : aus=lose;
+      computerSelection == 'paper' ? outcome = win : outcome = lose;
     }
 
-  return aus
+  return outcome
 }
 
 // selecting the player choice buttons
@@ -57,6 +70,7 @@ function displayResult(hand){
 }
 
 function startGame() {
+  // calling the displayResult function with user choice
   matches.forEach((selection) => {
     selection.addEventListener('click', () => {
       if (selection.classList.contains('rock')) {
@@ -71,27 +85,30 @@ function startGame() {
     })})}
 
 function userWin(state){
+  // winning state is either 'True' or 'False'
   let temp
   winner = ''
 
   // if user wins
   if (state=='True') {
     userPoints+=1;
-    winner = 'user'
-    temp = userPoints
+    winner = 'user';
+    temp = userPoints;
   }
   // if computer wins
   else {
     computerPoints+=1;
-    winner = 'computer'
+    winner = 'computer';
     temp = computerPoints;
   }
 
+  // someone wins: alert and refresh the page
   if (temp>4) {
-    alert(`Game Over! ${winner} wins`);
+    alert(`Game Over! The winner is: ${capitalized[winner]}.`);
     location.reload();
   }
 
+  // game goes on, updating the score
   else {
     cleanText(winner);
     const container = document.querySelector(`#${winner}`);
