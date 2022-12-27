@@ -1,15 +1,34 @@
-.scores{
+.scores, .actions {
   display:flex;
   flex-direction: row;
   font-size: 20px;
-  justify-content: space-evenly;
   text-align: center;
 }
 
+.scores {
+  justify-content: space-evenly;
+}
+
+.actions {
+  justify-content: space-between;
+  margin: 50px 350px 50px 350px;
+}
+
 h1, h2, p, div {
-  text-align : center;
   font-family :'Roboto';
   margin: 2%;
+  text-align : center;
+}
+
+h1 {
+  font-size: 40px;
+}
+h2 {
+  font-size: 30px;
+}
+
+h {
+  font-size: 20px;
 }
 
 button{
