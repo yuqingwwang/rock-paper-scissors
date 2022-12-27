@@ -80,3 +80,7 @@ footer {
   position: absolute;
   text-align: center;
 }
+
+strong {
+  text-decoration: underline;
+}
