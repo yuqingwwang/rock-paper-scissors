@@ -26,7 +26,7 @@ function playRound(playerSelection, computerSelection) {
   } beats ${capitalized[playerSelection]}.`
 
   if (playerSelection == computerSelection){
-    return outcome;
+    return 'You both chose ' + capitalized[playerSelection] + '. ' + outcome
   }
 
   else
@@ -95,6 +95,7 @@ function userWin(state){
     winner = 'user';
     temp = userPoints;
   }
+
   // if computer wins
   else {
     computerPoints+=1;
@@ -128,22 +129,3 @@ const resetGame = () => {
 
 startGame()
 resetGame()
-
-// old code for the version without GUI
-// function game(){
-//   for (let i = 0; i < 5; i++) {
-//     let playerSelection = prompt(`Round ${i+1}! ` + "What's your choice", "Rock").toLowerCase()
-//     let computerSelection = getComputerChoice()
-
-//     if (!choices.includes(playerSelection)) {
-//       alert('Please choose from Rock, paper or scissors')
-//       i--;
-//     }
-
-//     else {
-//       console.log(playRound(playerSelection, computerSelection))
-//     }
-//  }
-// }
-
-// game()
