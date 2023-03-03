@@ -1,4 +1,4 @@
-html{
+html {
   position:relative;
   min-height: 100%;
 }
@@ -23,10 +23,6 @@ html,body{
   justify-content: space-evenly;
 }
 
-.actions {
-  justify-content: space-evenly;
-  margin: 50px 350px 50px 350px;
-}
 
 h1, h2, p, div {
   font-family :'Roboto';
@@ -42,41 +38,51 @@ h2 {
   font-size: 30px;
 }
 
-p, div {
+p {
   font-size: 20px;
 }
 
-button{
-  background-color: rgb(157, 96, 21);
+button {
+  background-color: rgb(184, 117, 186);
   border-radius: 10px;
   color: whitesmoke;
   font-size: 25px;
   margin: 10px;
   padding: 10px;
-  width: 200px;
+  width: 100%;
 }
 
-.actions button {
+#reset {
+  padding: 20px;
+  width: 20%;
+}
+
+.actions {
+  display: flex;
+  justify-content: space-around;
+  padding: 0 100px 20px 100px;
+}
+/* .actions button {
   position: relative;
+} */
+
+.reset-section {
+  padding-top: 20px;
+  padding-bottom: 50px;
 }
 
-.game-stats {
-  padding-top: 20px;
-  padding-bottom: 40px;
-}
 header, footer{
-  background-color: rgb(218, 152, 28) ;
+  background-color: rgb(231, 129, 33) ;
   color: white;
-  line-height: 2;
   width: 100%;
 }
 
 header {
   padding-left: 10px;
+  line-height: 2;
 }
 
 footer {
-  bottom: 0;
   position: absolute;
   text-align: center;
 }
