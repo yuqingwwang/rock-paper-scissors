@@ -23,9 +23,16 @@ html,body{
   justify-content: space-evenly;
 }
 
+h1, h2 {
+  font-family :'Permanent Marker', cursive;
+}
+
+p, div {
+  font-family: 'Roboto';
+}
+
 
 h1, h2, p, div {
-  font-family :'Roboto';
   margin: 2%;
   text-align : center;
 }
